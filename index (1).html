@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>HTML</title>
+  
+  <!-- HTML -->
+  
+
+  <!-- Custom Styles -->
+  <style>
+    input{
+  width: 75%;
+  height: 40px;
+  font-size: 35px;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 5px 5px 5px 5px;
+  text-align: center;
+  font-family: impact;
+  font-weight: 70px;
+}
+
+  h4{
+  text-align: center;
+  margin: 15px 15px 15px 15px;
+  color: #128967;
+}
+
+  button{
+    padding: 7px;
+  }
+
+  </style>
+</head>
+
+<body>
+<!-- practice starts here  -->
+<p>//Note:the number should not exceed 7 digits//</p>
+<center>
+    <input type="text" id="text" onkeyup="showValue()" placeholder="7 digit long">
+    <h4 id="show"></h4>
+    <button id="showF" onclick="showFactor()">Show Fctors</button>
+  </center>
+  <h4 id="factor"></h3>
+  
+  
+  
+  
+  
+  
+  <!-- Project -->
+  <script>
+    function showValue() {
+
+
+  let count = 0;
+  let num = document.getElementById('text').value
+
+  for (i = 1; i <= num; i++) {
+    if (num % i == 0) {
+      count++;
+    }
+  }
+  if (count == 2) {
+    document.getElementById('show').innerHTML = num + " is prime"
+    count = 0;
+  }
+  else {
+    document.getElementById('show').innerHTML = num + " is composite"
+    count = 0;
+  }
+
+}
+  </script>
+</body>
+</html>
