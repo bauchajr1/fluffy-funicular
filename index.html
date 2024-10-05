@@ -12,37 +12,43 @@
 
   <!-- Custom Styles -->
   <style>
-  body{
- background:url("Messenger_creation_E1FA01F7-20D2-4EE7-9904-54B543B7ED75.jpeg");
-  }
-
+  
+    body{
+      background: dimgray;
+    }
+    
     
     input{
-  width: 75%;
-  height: 40px;
-  font-size: 35px;
-  padding: 5px;
-  border-radius: 5px;
-  margin: 5px 5px 5px 5px;
-  text-align: center;
-  font-family: impact;
-  font-weight: 70px;
-}
+      width: 75%;
+      height: 40px;
+      font-size: 35px;
+      padding: 5px;
+      border-radius: 5px;
+      margin: 5px 5px 5px 5px;
+      text-align: center;
+      font-family: impact;
+      font-weight: 70px;
+      box-shadow: 1px 1px 5px white;
 
-  h4{
-  text-align: center;
-  margin: 15px 15px 15px 15px;
-  color: #128967;
-}
+    }
 
-  button{
-    padding: 7px;
-  }
+    h4{
+      text-align: center;
+      margin: 15px 15px 15px 15px;
+      color: white;
+    }
 
-  img{
-width:100px;
-    height:100px;
-  }
+    button{
+      padding: 7px;
+      box-shadow: 1px 1px 3px 1px;
+      background: black;
+      color: white;
+    }
+    button:hover{
+      background-color: white;
+      color: black;
+    }
+
   </style>
 </head>
 
@@ -52,37 +58,47 @@ width:100px;
 <center>
     <input type="text" id="text" onkeyup="showValue()" placeholder="7 digit long">
     <h4 id="show"></h4>
-  </center>
-  <h4 id="factor"></h3>
-  
-  <img src="Messenger_creation_C42277E0-D5DD-423E-94AD-9AC0E4A0CA85.jpeg">
-  
-  
-  
-  
-  <!-- Project -->
-  <script>
+    <button id="showF" onclick="showFactor()">Show Factors</button>
+</center>
+<h4 id="factor"></h4>
+
+<!-- Project -->
+<script>
     function showValue() {
+      let count = 0;
+      let num = document.getElementById('text').value;
 
-
-  let count = 0;
-  let num = document.getElementById('text').value
-
-  for (i = 1; i <= num; i++) {
-    if (num % i == 0) {
-      count++;
+      for (i = 1; i <= num; i++) {
+        if (num % i == 0) {
+          count++;
+        }
+      }
+      if (count == 2) {
+        document.getElementById('show').innerHTML = num + " is prime";
+        count = 0;
+      }
+      else {
+        document.getElementById('show').innerHTML = num + " is composite";
+        count = 0;
+      }
     }
-  }
-  if (count == 2) {
-    document.getElementById('show').innerHTML = num + " is prime"
-    count = 0;
-  }
-  else {
-    document.getElementById('show').innerHTML = num + " is composite"
-    count = 0;
-  }
 
-}
-  </script>
+    function showFactor(){
+      let factorNum = document.getElementById('text').value;
+      let factors = [];
+      
+      // Clear the previous results
+      document.getElementById('factor').innerHTML = "";
+
+      for(i = 1; i <= factorNum; i++){
+        if(factorNum % i == 0){
+          factors.push(i);
+        }
+      }
+
+      // Display all factors
+      document.getElementById('factor').innerHTML = "Factors: " + factors.join(', ');
+    }
+</script>
 </body>
 </html>
